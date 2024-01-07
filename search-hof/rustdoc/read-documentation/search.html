@@ -296,6 +296,7 @@ will match these queries:</p>
 <tr><td><code>(T)</code></td><td><code>T</code></td></tr>
 <tr><td><code>(T,)</code></td><td><code>primitive:tuple&lt;T&gt;</code></td></tr>
 <tr><td><code>!</code></td><td><code>primitive:never</code></td></tr>
+<tr><td><code>(T, U -&gt; V, W)</code></td><td><code>fn(T, U) -&gt; (V, W)</code>, <code>Fn</code>, <code>FnMut</code>, and <code>FnOnce</code></td></tr>
 </tbody></table>
 </div>
 <p>When searching for <code>[]</code>, Rustdoc will return search results with either slices
@@ -313,6 +314,9 @@ or leading comma) it is the same as <code>primitive:tuple&lt;...&gt;</code>.</p>
 results for types that match tuples, even though it also matches the type on
 its own. That is, <code>(u32)</code> matches <code>(u32,)</code> for the exact same reason that it
 also matches <code>Result&lt;u32, Error&gt;</code>.</p>
+<p>The <code>-&gt;</code> operator has lower precedence than comma. If it's not wrapped
+in brackets, it delimits the return value for the function being searched for.
+To search for functions that take functions as parameters, use parenthesis.</p>
 <h3 id="limitations-and-quirks-of-type-based-search"><a class="header" href="#limitations-and-quirks-of-type-based-search">Limitations and quirks of type-based search</a></h3>
 <p>Type-based search is still a buggy, experimental, work-in-progress feature.
 Most of these limitations should be addressed in future version of Rustdoc.</p>
@@ -377,16 +381,18 @@ given under the <kbd>?</kbd> Help area, and in the detailed syntax below.</p>
 path = ident *(DOUBLE-COLON ident) [!]
 slice-like = OPEN-SQUARE-BRACKET [ nonempty-arg-list ] CLOSE-SQUARE-BRACKET
 tuple-like = OPEN-PAREN [ nonempty-arg-list ] CLOSE-PAREN
-arg = [type-filter *WS COLON *WS] (path [generics] / slice-like / tuple-like / [!])
+arg = [type-filter *WS COLON *WS] (path [BANG / generics] / slice-like / tuple-like)
 type-sep = COMMA/WS *(COMMA/WS)
-nonempty-arg-list = *(type-sep) arg *(type-sep arg) *(type-sep)
+nonempty-arg-list = *(type-sep) arg *(type-sep arg) *(type-sep) [ return-args ]
 generic-arg-list = *(type-sep) arg [ EQUAL arg ] *(type-sep arg [ EQUAL arg ]) *(type-sep)
-generics = OPEN-ANGLE-BRACKET [ generic-arg-list ] *(type-sep)
+normal-generics = OPEN-ANGLE-BRACKET [ generic-arg-list ] *(type-sep)
             CLOSE-ANGLE-BRACKET
+fn-like-generics = OPEN-PAREN [ nonempty-arg-list ] CLOSE-PAREN [ RETURN-ARROW arg ]
+generics = normal-generics / fn-like-generics
 return-args = RETURN-ARROW *(type-sep) nonempty-arg-list
 
 exact-search = [type-filter *WS COLON] [ RETURN-ARROW ] *WS QUOTE ident QUOTE [ generics ]
-type-search = [ nonempty-arg-list ] [ return-args ]
+type-search = [ nonempty-arg-list ]
 
 query = *WS (exact-search / type-search) *WS
 
@@ -431,6 +437,7 @@ QUOTE = %x22
 COMMA = &quot;,&quot;
 RETURN-ARROW = &quot;-&gt;&quot;
 EQUAL = &quot;=&quot;
+BANG = &quot;!&quot;
 
 ALPHA = %x41-5A / %x61-7A ; A-Z / a-z
 DIGIT = %x30-39
