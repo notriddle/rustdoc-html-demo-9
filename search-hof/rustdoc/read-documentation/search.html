@@ -288,6 +288,12 @@ will match these queries:</p>
 <li><code>Read -&gt; u8</code></li>
 </ul>
 <p>But it <em>does not</em> match <code>Result&lt;Vec, u8&gt;</code> or <code>Result&lt;u8&lt;Vec&gt;&gt;</code>.</p>
+<p>To search for a function that accepts a function as a parameter,
+like <code>Iterator::all</code>, wrap the nested signature in parenthesis,
+as in <a href="../../std/vec/struct.Vec.html?search=Iterator%3CT%3E%2C+(T+-%3E+bool)+-%3E+bool&amp;filter-crate=std"><code>Iterator&lt;T&gt;, (T -&gt; bool) -&gt; bool</code></a>.
+You can also search for a specific closure trait,
+such as <code>Iterator&lt;T&gt;, (FnMut(T) -&gt; bool) -&gt; bool</code>,
+but you need to know which one you want.</p>
 <h3 id="primitives-with-special-syntax"><a class="header" href="#primitives-with-special-syntax">Primitives with Special Syntax</a></h3>
 <div class="table-wrapper"><table><thead><tr><th>Shorthand</th><th>Explicit names</th></tr></thead><tbody>
 <tr><td><code>[]</code></td><td><code>primitive:slice</code> and/or <code>primitive:array</code></td></tr>
@@ -378,10 +384,10 @@ given under the <kbd>?</kbd> Help area, and in the detailed syntax below.</p>
 <p>Item filters can be used in both name-based and type signature-based searches.</p>
 <h2 id="search-query-syntax"><a class="header" href="#search-query-syntax">Search query syntax</a></h2>
 <pre><code class="language-text">ident = *(ALPHA / DIGIT / &quot;_&quot;)
-path = ident *(DOUBLE-COLON ident) [!]
+path = ident *(DOUBLE-COLON ident) [BANG]
 slice-like = OPEN-SQUARE-BRACKET [ nonempty-arg-list ] CLOSE-SQUARE-BRACKET
 tuple-like = OPEN-PAREN [ nonempty-arg-list ] CLOSE-PAREN
-arg = [type-filter *WS COLON *WS] (path [BANG / generics] / slice-like / tuple-like)
+arg = [type-filter *WS COLON *WS] (path [generics] / slice-like / tuple-like)
 type-sep = COMMA/WS *(COMMA/WS)
 nonempty-arg-list = *(type-sep) arg *(type-sep arg) *(type-sep) [ return-args ]
 generic-arg-list = *(type-sep) arg [ EQUAL arg ] *(type-sep arg [ EQUAL arg ]) *(type-sep)
