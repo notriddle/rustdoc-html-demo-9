@@ -1,0 +1,15 @@
+Testing T -> U ... in_args = 0, returned = 0, others = 200
+wall time = 26
+
+Testing T, U ... in_args = 0, returned = 0, others = 200
+wall time = 6
+
+Testing T -> T ... in_args = 0, returned = 0, others = 200
+wall time = 6
+
+Testing crc32 ... in_args = 0, returned = 0, others = 0
+wall time = 47
+
+Testing spi::pac ... in_args = 0, returned = 0, others = 0
+wall time = 22
+

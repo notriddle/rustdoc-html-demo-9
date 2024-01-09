@@ -1,0 +1,69 @@
+Testing generic:T -> generic:U ... in_args = 0, returned = 0, others = 200
+wall time = 148
+
+Testing generic:T, generic:U ... in_args = 0, returned = 0, others = 200
+wall time = 128
+
+Testing generic:T -> generic:T ... in_args = 0, returned = 0, others = 200
+wall time = 137
+
+Testing generic:T -> toraddr ... in_args = 0, returned = 0, others = 2
+wall time = 23
+
+Testing generic:T -> torclient ... in_args = 0, returned = 0, others = 6
+wall time = 26
+
+Testing generic:T -> retryerror ... in_args = 0, returned = 0, others = 2
+wall time = 28
+
+Testing generic:T -> solution ... in_args = 0, returned = 0, others = 0
+wall time = 9
+
+Testing generic:T -> equix ... in_args = 0, returned = 0, others = 0
+wall time = 20
+
+Testing generic:T, generic:U -> toraddr ... in_args = 0, returned = 0, others = 0
+wall time = 16
+
+Testing generic:T, generic:U -> torclient ... in_args = 0, returned = 0, others = 0
+wall time = 17
+
+Testing generic:T, generic:U -> retryerror ... in_args = 0, returned = 0, others = 0
+wall time = 35
+
+Testing generic:T, generic:U -> solution ... in_args = 0, returned = 0, others = 0
+wall time = 12
+
+Testing generic:T, generic:U -> equix ... in_args = 0, returned = 0, others = 0
+wall time = 80
+
+Testing generic:T, toraddr ... in_args = 0, returned = 0, others = 0
+wall time = 9
+
+Testing generic:T, torclient ... in_args = 0, returned = 0, others = 4
+wall time = 11
+
+Testing generic:T, retryerror ... in_args = 0, returned = 0, others = 3
+wall time = 14
+
+Testing generic:T, solution ... in_args = 0, returned = 0, others = 0
+wall time = 17
+
+Testing generic:T, equix ... in_args = 0, returned = 0, others = 0
+wall time = 14
+
+Testing tor ... in_args = 17, returned = 8, others = 200
+wall time = 71
+
+Testing arti::client ... in_args = 0, returned = 0, others = 0
+wall time = 173
+
+Testing torclientbuilder -> torclient ... in_args = 0, returned = 0, others = 2
+wall time = 24
+
+Testing torclient, future ... in_args = 0, returned = 0, others = 0
+wall time = 10
+
+Testing future<box> ... in_args = 0, returned = 0, others = 40
+wall time = 36
+
