@@ -1,3 +1,4 @@
+// ignore-tidy-filelength
 /* global addClass, getNakedUrl, getSettingValue */
 /* global onEachLazy, removeClass, searchState, browserSupportsHistoryApi, exports */
 
@@ -78,6 +79,7 @@ const longItemTypes = [
 
 // used for special search precedence
 const TY_GENERIC = itemTypes.indexOf("generic");
+const TY_IMPORT = itemTypes.indexOf("import");
 const ROOT_PATH = typeof window !== "undefined" ? window.rootPath : "../";
 
 // In the search display, allows to switch between tabs.
@@ -1229,13 +1231,22 @@ if (parserState.userQuery[parserState.pos] === "[") {
                     obj.dist = result.dist;
                     const res = buildHrefAndPath(obj);
                     obj.displayPath = pathSplitter(res[0]);
-                    obj.fullPath = obj.displayPath + obj.name;
-                    // To be sure than it some items aren't considered as duplicate.
-                    obj.fullPath += "|" + obj.ty;
 
-                    if (duplicates.has(res[2])) {
+                    // To be sure than it some items aren't considered as duplicate.
+                    obj.fullPath = res[2] + "|" + obj.ty;
+                    if (duplicates.has(obj.fullPath)) {
                         continue;
                     }
+
+                    // Exports are specifically not shown if the items they point at
+                    // are already in the results.
+                    if (obj.ty === TY_IMPORT && duplicates.has(res[2])) {
+                        continue;
+                    }
+                    if (duplicates.has(res[2] + "|" + TY_IMPORT)) {
+                        continue;
+                    }
+                    duplicates.add(obj.fullPath);
                     duplicates.add(res[2]);
 
                     obj.href = res[1];
