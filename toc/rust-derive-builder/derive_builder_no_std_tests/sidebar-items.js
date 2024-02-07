@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["FooBuilderError"],"fn":["build_foo_err","build_foo_ok"],"struct":["Foo","FooBuilder"]};
