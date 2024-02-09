@@ -1935,6 +1935,7 @@ However, it's not needed with smaller screen width because the doc/code block is
 			top: 0;
 			bottom: 0;
 			overflow-y: scroll;
+			overscroll-behavior: contain;
 			max-height: 100vh;
 			padding-left: 24px;
 		}
