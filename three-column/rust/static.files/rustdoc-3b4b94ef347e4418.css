@@ -517,7 +517,7 @@ img {
 	scrollbar-width: initial;
 	scrollbar-color: var(--scrollbar-color);
 }
-.sidebar {
+.sidebar, #TOC section, #ModNav section {
 	scrollbar-width: thin;
 	scrollbar-color: var(--scrollbar-color);
 }
@@ -526,17 +526,24 @@ img {
 ::-webkit-scrollbar {
 	width: 12px;
 }
-.sidebar::-webkit-scrollbar {
+.sidebar::-webkit-scrollbar,
+#TOC section::-webkit-scrollbar,
+#ModNav section::-webkit-scrollbar {
 	width: 8px;
 }
 ::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0;
 	background-color: var(--scrollbar-track-background-color);
 }
-.sidebar::-webkit-scrollbar-track {
+.sidebar::-webkit-scrollbar-track,
+#TOC section::-webkit-scrollbar-track,
+#ModNav section::-webkit-scrollbar-track {
 	background-color: var(--scrollbar-track-background-color);
 }
-::-webkit-scrollbar-thumb, .sidebar::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb,
+#TOC section::-webkit-scrollbar-thumb,
+#ModNav section::-webkit-scrollbar-thumb {
 	background-color: var(--scrollbar-thumb-background-color);
 }
 
