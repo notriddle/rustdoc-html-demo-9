@@ -1,0 +1,69 @@
+Testing generic:T -> generic:U ... in_args = 0, returned = 0, others = 200
+wall time = 92
+
+Testing generic:T, generic:U ... in_args = 0, returned = 0, others = 200
+wall time = 77
+
+Testing generic:T -> generic:T ... in_args = 0, returned = 0, others = 200
+wall time = 78
+
+Testing generic:T -> toraddr ... in_args = 0, returned = 0, others = 2
+wall time = 7
+
+Testing generic:T -> torclient ... in_args = 0, returned = 0, others = 6
+wall time = 8
+
+Testing generic:T -> retryerror ... in_args = 0, returned = 0, others = 2
+wall time = 12
+
+Testing generic:T -> solution ... in_args = 0, returned = 0, others = 0
+wall time = 10
+
+Testing generic:T -> equix ... in_args = 0, returned = 0, others = 0
+wall time = 5
+
+Testing generic:T, generic:U -> toraddr ... in_args = 0, returned = 0, others = 0
+wall time = 7
+
+Testing generic:T, generic:U -> torclient ... in_args = 0, returned = 0, others = 0
+wall time = 9
+
+Testing generic:T, generic:U -> retryerror ... in_args = 0, returned = 0, others = 0
+wall time = 42
+
+Testing generic:T, generic:U -> solution ... in_args = 0, returned = 0, others = 0
+wall time = 43
+
+Testing generic:T, generic:U -> equix ... in_args = 0, returned = 0, others = 0
+wall time = 8
+
+Testing generic:T, toraddr ... in_args = 0, returned = 0, others = 0
+wall time = 6
+
+Testing generic:T, torclient ... in_args = 0, returned = 0, others = 4
+wall time = 6
+
+Testing generic:T, retryerror ... in_args = 0, returned = 0, others = 3
+wall time = 9
+
+Testing generic:T, solution ... in_args = 0, returned = 0, others = 0
+wall time = 7
+
+Testing generic:T, equix ... in_args = 0, returned = 0, others = 0
+wall time = 5
+
+Testing tor ... in_args = 19, returned = 9, others = 200
+wall time = 34
+
+Testing arti::client ... in_args = 0, returned = 0, others = 0
+wall time = 103
+
+Testing torclientbuilder -> torclient ... in_args = 0, returned = 0, others = 2
+wall time = 5
+
+Testing torclient, future ... in_args = 0, returned = 0, others = 0
+wall time = 6
+
+Testing future<box> ... in_args = 0, returned = 0, others = 41
+wall time = 16
+

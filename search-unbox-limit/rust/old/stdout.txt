@@ -1,0 +1,15 @@
+Testing hirid, typeckresults -> defid ... in_args = 0, returned = 0, others = 2
+wall time = 39
+
+Testing expr, provenance -> stablehasher ... in_args = 0, returned = 0, others = 0
+wall time = 28
+
+Testing node, T -> defid ... in_args = 0, returned = 0, others = 0
+wall time = 24
+
+Testing typeprivacyvisitor, testreachabilityvisitor -> duplicatediagnosticitemincrate ... in_args = 0, returned = 0, others = 0
+wall time = 18
+
+Testing canonicalvarinfo, intoiterator -> intoiterator ... in_args = 0, returned = 0, others = 3
+wall time = 378416
+

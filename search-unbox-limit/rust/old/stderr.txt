@@ -1,0 +1,2 @@
+🔥  Profiling[1000D[0K🔥  Process exited, generating flamegraph[1000D[0K🔥  Flamegraph generated in
+file:///var/tmp/rustdoc-profile/rustdoc-js-profile/out/rust/old/flamegraph.html
